@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-cloud-sun"></i> Weather App</h1>
+        </header>
+
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="locationInput" placeholder="Enter city name or use current location">
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+                <button id="currentLocationBtn" title="Get demo location weather"><i class="fas fa-location-dot"></i></button>
+            </div>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Loading weather data...</p>
+        </div>
+
+        <div class="error-message" id="errorMessage">
+            <i class="fas fa-exclamation-circle"></i>
+            <p id="errorText"></p>
+        </div>
+
+        <div class="weather-container" id="weatherContainer">
+            <div class="current-weather">
+                <div class="weather-info">
+                    <div class="location">
+                        <h2 id="cityName"></h2>
+                        <p id="currentDate"></p>
+                    </div>
+                    <div class="temperature">
+                        <span id="temp"></span>
+                        <div class="temp-unit">
+                            <button id="celsiusBtn" class="active">°C</button>
+                            <button id="fahrenheitBtn">°F</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="weather-icon">
+                    <img id="weatherIcon" src="" alt="Weather Icon">
+                    <p id="weatherDescription"></p>
+                </div>
+            </div>
+
+            <div class="weather-details">
+                <div class="detail-card">
+                    <i class="fas fa-eye"></i>
+                    <div class="detail-info">
+                        <span class="label">Visibility</span>
+                        <span class="value" id="visibility"></span>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-tint"></i>
+                    <div class="detail-info">
+                        <span class="label">Humidity</span>
+                        <span class="value" id="humidity"></span>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-wind"></i>
+                    <div class="detail-info">
+                        <span class="label">Wind Speed</span>
+                        <span class="value" id="windSpeed"></span>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-thermometer-half"></i>
+                    <div class="detail-info">
+                        <span class="label">Feels Like</span>
+                        <span class="value" id="feelsLike"></span>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-compress-arrows-alt"></i>
+                    <div class="detail-info">
+                        <span class="label">Pressure</span>
+                        <span class="value" id="pressure"></span>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-sun"></i>
+                    <div class="detail-info">
+                        <span class="label">UV Index</span>
+                        <span class="value" id="uvIndex"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="forecast-container">
+                <h3>5-Day Forecast</h3>
+                <div class="forecast-grid" id="forecastGrid">
+                    <!-- Forecast items will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Weather data provided by our local API server</p>
+            <p class="api-note">This app uses a local Node.js API server. Make sure to run 'npm start' to start the server!</p>
+            <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.8;">
+                💡 The location button will try to use your GPS location, but will fall back to demo data if location access is denied.
+            </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
